@@ -257,6 +257,7 @@ class BundleBuildFileGenerator
     base_dir = "lib/ruby/#{ruby_version}"
 
     # paths to register to $LOAD_PATH
+    return unless spec_path
     require_paths = Gem::StubSpecification.gemspec_stub(spec_path, base_dir, "#{base_dir}/gems").require_paths
     # Usually, registering the directory paths listed in the `require_paths` of gemspecs is sufficient, but
     # some gems also require additional paths to be included in the load paths.
